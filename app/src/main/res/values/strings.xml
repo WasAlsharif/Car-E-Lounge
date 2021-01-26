@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Car-E Lounge</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_admin">Admin</string>
+    <string name="title_activity_car">Car</string>
+    <string name="title_activity_car__e__lounge">Car_E_Lounge</string>
+    <string name="title_activity_questionnaire">Questionnaire</string>
+    <string name="title_activity_rapid__miner">Rapid_Miner</string>
+</resources>

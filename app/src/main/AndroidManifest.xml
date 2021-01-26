@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.car_eloung">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/outlogo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+        <activity
+            android:name=".Rapid_Miner"
+            android:label="@string/title_activity_rapid__miner"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Questionnaire"
+            android:label="@string/title_activity_questionnaire"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Car_E_Lounge"
+            android:label="@string/title_activity_car__e__lounge"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Car"
+            android:label="@string/title_activity_car"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Admin"
+            android:label="@string/title_activity_admin"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".logo_activity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
