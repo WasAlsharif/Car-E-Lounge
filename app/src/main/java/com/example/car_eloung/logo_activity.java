@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 public class logo_activity extends AppCompatActivity {
 
     private static final long SPLASH_TIME_OUT = 4000;
