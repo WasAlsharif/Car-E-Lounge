@@ -29,7 +29,7 @@ import org.dmg.pmml.PMML;
 import org.jpmml.evaluator.Evaluator;
 import org.jpmml.evaluator.ModelEvaluatorBuilder;
 import org.jpmml.evaluator.reporting.ReportingValueFactoryFactory;
-import org.jpmml.evaluator.tree.TreeModelEvaluator;*/
+import org.jpmml.evaluator.tree.TreeModelEvaluator;
 import org.xml.sax.InputSource;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.CapabilitiesHandler;
@@ -47,7 +47,7 @@ import weka.core.pmml.jaxbbindings.TreeModel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import javax.xml.transform.Source;
+import javax.xml.transform.Source;*/
 
 public class Car_E_Lounge extends AppCompatActivity {
     @Override
@@ -58,8 +58,8 @@ public class Car_E_Lounge extends AppCompatActivity {
         Button button = (Button)findViewById(R.id.button);
         Button button2 = (Button)findViewById(R.id.button2);
 
-        DecisionTree decisionTree = new DecisionTree();
-        PMML pmml = new PMML();
+       // DecisionTree decisionTree = new DecisionTree();
+      //  PMML pmml = new PMML();
 
 
 

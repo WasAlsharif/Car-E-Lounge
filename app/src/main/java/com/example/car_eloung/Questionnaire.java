@@ -1,15 +1,27 @@
 package com.example.car_eloung;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+//For display image from uri
+import com.squareup.picasso.Picasso;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import weka.core.Capabilities;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+/*import weka.core.Capabilities;
 import weka.core.CapabilitiesHandler;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -17,14 +29,17 @@ import weka.core.RevisionHandler;
 import weka.core.RevisionUtils;
 import weka.core.SerializedObject;
 import weka.core.Utils;
-import weka.core.Capabilities.Capability;
+import weka.core.Capabilities.Capability;*/
 
 public class Questionnaire extends AppCompatActivity {
     int i = 0;
     Button A, B, C, D;
-    TextView question;
+    TextView question, loading, brand, model;
     Button circle1, circle2, circle3, circle4, circle5;
+    ImageView back, Tran, car_pic;
+    ProgressBar progressBar;
 
+    //  ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +57,8 @@ public class Questionnaire extends AppCompatActivity {
         String Question5is = "";
         String[] Question1 = new String[10];
 
-
         questions(i);
-        final ImageView back = (ImageView) findViewById(R.id.back);
+        back = (ImageView) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +91,6 @@ public class Questionnaire extends AppCompatActivity {
 
 
         //Second Step show those
-
 
         circle1 = (Button) findViewById(R.id.circle1);
         circle2 = (Button) findViewById(R.id.circle2);
@@ -160,8 +173,6 @@ public class Questionnaire extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     void questions(int i) {
@@ -211,9 +222,62 @@ public class Questionnaire extends AppCompatActivity {
             D.setText("T");
             circle4.setBackgroundResource(R.drawable.progress_circle);
             circle5.setBackgroundResource(R.drawable.progress_circle2);
-        } else {
 
+        } else {
+            //Here we move to another layout
+            setContentView(R.layout.questions_activity2);
+
+            //These are from Layout 2
+            progressBar = (ProgressBar) findViewById(R.id.progressBar);
+            Tran = (ImageView) findViewById(R.id.imageView6);
+            loading = (TextView) findViewById(R.id.Loading);
+            car_pic = (ImageView) findViewById(R.id.car_pic);
+            brand = (TextView) findViewById(R.id.brand);
+            model = (TextView) findViewById(R.id.model);
+            back = (ImageView) findViewById(R.id.back);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    final AlertDialog dialog = new AlertDialog.Builder(Questionnaire.this)
+                            .setTitle("Exit")
+                            .setMessage("Are you sure do you want to back?")
+                            .setPositiveButton("Yes", null)
+                            .setNegativeButton("Cancel", null)
+                            .show();
+
+                    Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                    positiveButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            startActivity(new Intent(Questionnaire.this, Car_E_Lounge.class));
+                            finish(); // Here We Have Problem when close the activity
+                        }
+                    });
+                }
+            });
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    result();
+                    progressBar.setVisibility(View.INVISIBLE);
+                    loading.setVisibility(View.INVISIBLE);
+                    Tran.setVisibility(View.INVISIBLE);
+                }
+            }, 3000);   //3 seconds
         }
+    }
+
+    void result() {
+        //grab the data from here
+        brand.setText("Brand: Toyota");
+        model.setText("Model: Camry 2021");
+        Picasso.with(Questionnaire.this).load("https://api.arabauto.net/uploads/2020/7/1595733235568.jpg")
+                .resize(450, 350)
+                .into(car_pic);
+
+
     }
 
 
