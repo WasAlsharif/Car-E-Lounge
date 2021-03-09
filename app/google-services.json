@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "436889134700",
+    "firebase_url": "https://car-e-lounge-default-rtdb.firebaseio.com",
+    "project_id": "car-e-lounge",
+    "storage_bucket": "car-e-lounge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436889134700:android:9f3400fcbe0cda02ccda49",
+        "android_client_info": {
+          "package_name": "com.example.car_eloung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436889134700-8mvaifijgnuanoore8h513fv5b7pahul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.car_eloung",
+            "certificate_hash": "f2f101ecc99e9553b9185067cea191216a098120"
+          }
+        },
+        {
+          "client_id": "436889134700-s7lhevrv9kjeqhi2sjig384mknq0j3ia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWbbnUMJQiU2-jRkv2Yu78Yjw0uBOeuzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436889134700-s7lhevrv9kjeqhi2sjig384mknq0j3ia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
