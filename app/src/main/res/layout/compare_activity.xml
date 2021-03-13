@@ -9,7 +9,7 @@
 
     <Spinner
         android:id="@+id/model_2"
-        android:layout_width="130dp"
+        android:layout_width="220dp"
         android:layout_height="30dp"
         android:layout_marginStart="11dp"
         android:layout_marginLeft="11dp"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
         android:text="Model:"
         android:textColor="#000000"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="26dp"
         android:text="Car Company:"
         android:textColor="#9A0909"
@@ -55,7 +55,7 @@
 
     <Spinner
         android:id="@+id/model_1"
-        android:layout_width="130dp"
+        android:layout_width="220dp"
         android:layout_height="30dp"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
@@ -166,7 +166,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="34dp"
         android:text="Car Company:"
         android:textColor="#9A0909"
@@ -179,7 +179,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="32dp"
         android:text="Model:"
         android:textColor="#000000"
