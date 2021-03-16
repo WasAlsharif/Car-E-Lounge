@@ -39,4 +39,5 @@ dependencies {
     //importing picaso library
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
 }
