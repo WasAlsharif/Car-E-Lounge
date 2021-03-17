@@ -51,7 +51,7 @@ public class Rapid_Miner extends AppCompatActivity {
 
     String Company_Logo1, Company_Name1, Car_Image1, To100sec1, Body_Style1, Class1, Country1, Engine1, Gearbox1, Power1, Speed1, Torque1, Price1, Year1, Good1, Bad1;
     String Company_Logo2, Company_Name2, Car_Image2, To100sec2, Body_Style2, Class2, Country2, Engine2, Gearbox2, Power2, Speed2, Torque2, Price2, Year2, Good2, Bad2;
-
+    int selected =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,13 +61,14 @@ public class Rapid_Miner extends AppCompatActivity {
 
         models = new ArrayList<>();
         models2 = new ArrayList<>();
+
         Default = new ArrayList<>();
         Default.add("Choose Car Company First");
         ArrayAdapter<String> spinnerArrayAdapter0 = new ArrayAdapter<String>
                 (this, android.R.layout.simple_spinner_item, Default);
         spinnerArrayAdapter0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         model1.setAdapter(spinnerArrayAdapter0);
-        // model2.setAdapter(spinnerArrayAdapter0);
+        model2.setAdapter(spinnerArrayAdapter0);
 
         textView = (TextView) findViewById(R.id.textView16);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -118,9 +119,11 @@ public class Rapid_Miner extends AppCompatActivity {
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                        models.removeAll(models);
-                        Value = spinner.getSelectedItem().toString();
-                        Grab_models(Value);
+                       if(!spinner.getSelectedItem().toString().equals("Select Car Company:")) {
+                           models.removeAll(models);
+                           Value = spinner.getSelectedItem().toString();
+                           Grab_models(Value);
+                       }
                     }
 
                     @Override
@@ -141,9 +144,11 @@ public class Rapid_Miner extends AppCompatActivity {
                 spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                        models2.removeAll(models2);
-                        Value2 = spinner2.getSelectedItem().toString();
-                        Grab_models2(Value2);
+                        if(!spinner2.getSelectedItem().toString().equals("Select Car Company:")) {
+                            models2.removeAll(models2);
+                            Value2 = spinner2.getSelectedItem().toString();
+                            Grab_models2(Value2);
+                        }
                     }
 
                     @Override
@@ -154,24 +159,23 @@ public class Rapid_Miner extends AppCompatActivity {
             }
         }, 3000);   //3 seconds
 
-
-        start_compare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!spinner.getSelectedItem().toString().equals("Select Car Company:") && !spinner2.getSelectedItem().toString().equals("Select Car Company:")) {
-                    setContentView(R.layout.compare_activity2);
-                    car = (TextView) findViewById(R.id.car);
-                    Result();
-                } else {
-                    Toast.makeText(Rapid_Miner.this, "Fill all the requirements first!", Toast.LENGTH_SHORT).show();
+            start_compare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (selected >=2) {
+                        if (!spinner.getSelectedItem().toString().equals("Select Car Company:") && !spinner2.getSelectedItem().toString().equals("Select Car Company:")) {
+                            setContentView(R.layout.compare_activity2);
+                            car = (TextView) findViewById(R.id.car);
+                            Result();
+                        }
+                    } else {
+                        Toast.makeText(Rapid_Miner.this, "Fill all the requirements first!", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
-            }
-        });
+            });
     }
 
     public void Grab_models(String value) {
-        database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -202,7 +206,6 @@ public class Rapid_Miner extends AppCompatActivity {
     }
 
     public void Grab_models2(String value) {
-        database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -241,6 +244,7 @@ public class Rapid_Miner extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 model1_value = model1.getSelectedItem().toString();
+                selected++;
             }
 
             @Override
@@ -259,6 +263,7 @@ public class Rapid_Miner extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 model2_value = model2.getSelectedItem().toString();
+                selected++;
             }
 
             @Override

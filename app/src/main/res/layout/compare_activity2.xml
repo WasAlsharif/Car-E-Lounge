@@ -56,8 +56,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="413dp"
-        android:layout_height="529dp"
+        android:layout_width="match_parent"
+        android:layout_height="515dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,8 +67,8 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="413dp"
-        android:layout_height="529dp"
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,12 +78,13 @@
             android:id="@+id/text1"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Companies"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -91,12 +92,12 @@
 
             <ImageView
                 android:id="@+id/company_logo1"
-                android:layout_width="145dp"
+                android:layout_width="180dp"
                 android:layout_height="95dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="42dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginLeft="42dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="20dp"
@@ -105,14 +106,14 @@
 
             <ImageView
                 android:id="@+id/company_logo2"
-                android:layout_width="145dp"
+                android:layout_width="180dp"
                 android:layout_height="95dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="43dp"
+                android:layout_marginEnd="0dp"
                 android:layout_marginRight="43dp"
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
@@ -123,7 +124,7 @@
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Company1_name"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -140,7 +141,7 @@
 
             <TextView
                 android:id="@+id/Company2_name"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -163,37 +164,39 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Cars Images"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp">
 
             <ImageView
                 android:id="@+id/Img_car1"
-                android:layout_width="145dp"
+                android:layout_width="180dp"
                 android:layout_height="95dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="42dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginLeft="42dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="0dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <ImageView
                 android:id="@+id/Img_car2"
-                android:layout_width="145dp"
+                android:layout_width="180dp"
                 android:layout_height="95dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="43dp"
-                android:layout_marginRight="43dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:layout_marginBottom="0dp"
                 android:layout_weight="1"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -205,15 +208,17 @@
             android:layout_height="39dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="0-100 kph (sec):"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:text="0-100 kph (sec)"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/To100sec1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -226,11 +231,12 @@
                 android:text="TextView"
                 android:textSize="20dp"
                 android:textColor="#0070A3"
+
                 />
 
             <TextView
                 android:id="@+id/To100sec2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -253,8 +259,9 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Body Style"
-            android:textColor="#165305"
+            android:textColor="#FFFFFF"
             android:textSize="18dp"
+            android:background="#35647B"
             />
 
         <RelativeLayout
@@ -263,7 +270,7 @@
 
             <TextView
                 android:id="@+id/Body_Style1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -280,7 +287,7 @@
 
             <TextView
                 android:id="@+id/Body_Style2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -303,43 +310,44 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Class"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="83dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/Class1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:gravity="center"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="0dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="TextView"
-                android:textSize="20dp"
                 android:textColor="#0070A3"
-                />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/Class2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:gravity="center"
                 android:layout_marginEnd="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="#0070A3"/>
+                android:textColor="#0070A3"
+                android:textSize="20dp" />
         </RelativeLayout>
         <TextView
             android:id="@+id/text6"
@@ -347,15 +355,17 @@
             android:layout_height="39dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Country:"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:text="Country"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Country1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -372,7 +382,7 @@
 
             <TextView
                 android:id="@+id/Country2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -393,15 +403,17 @@
             android:layout_height="39dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Engine:"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:text="Engine"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Engine1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -418,7 +430,7 @@
 
             <TextView
                 android:id="@+id/Engine2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -439,15 +451,17 @@
             android:layout_height="39dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Gearbox:"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:text="Gearbox"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Gearbox1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -464,7 +478,7 @@
 
             <TextView
                 android:id="@+id/Gearbox2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -485,15 +499,17 @@
             android:layout_height="39dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Power:"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:text="Power"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Power1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -510,7 +526,7 @@
 
             <TextView
                 android:id="@+id/Power2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -531,15 +547,18 @@
             android:layout_height="39dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Speed:"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:text="Speed"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Speed1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -556,7 +575,7 @@
 
             <TextView
                 android:id="@+id/Speed2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -578,14 +597,16 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Torque"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Torque1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -602,7 +623,7 @@
 
             <TextView
                 android:id="@+id/Torque2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -624,14 +645,16 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Price"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Price1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -648,7 +671,7 @@
 
             <TextView
                 android:id="@+id/Price2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -670,14 +693,16 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Year"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Year1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -694,7 +719,7 @@
 
             <TextView
                 android:id="@+id/Year2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -716,14 +741,16 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Good"
-            android:textColor="#165305"
-            android:textSize="18dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            android:background="#35647B"
+            />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Good1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -740,7 +767,7 @@
 
             <TextView
                 android:id="@+id/Good2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -755,21 +782,24 @@
 
 
         </RelativeLayout>
+
         <TextView
             android:id="@+id/text15"
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_weight="1"
+            android:background="#35647B"
             android:gravity="center"
             android:text="Bad"
-            android:textColor="#165305"
+            android:textColor="#FFFFFF"
             android:textSize="18dp" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/Bad1"
-                android:layout_width="203dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -781,24 +811,20 @@
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textSize="20dp"
-                android:textColor="#0070A3"
-                />
+                android:textColor="#0070A3" />
 
             <TextView
                 android:id="@+id/Bad2"
-                android:layout_width="205dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
                 android:layout_weight="1"
-                android:text="TextView"
-                android:textSize="20dp"
-                android:textColor="#0070A3"
-                />
 
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#0070A3"
+                android:textSize="20dp" />
 
         </RelativeLayout>
 
