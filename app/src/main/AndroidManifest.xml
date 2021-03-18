@@ -34,6 +34,10 @@
             android:label="@string/title_activity_admin"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".MoreActivity"
+            android:label="More Reccomndations"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".logo_activity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
