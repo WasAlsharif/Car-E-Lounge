@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/CSS" href="TheBeans.CSS">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>The Beans</title>
+
+</head>
+<body>
+  <div class="sbody">
+    <div class="t"><a href="index.html" ><img src="logo.png" width="10%" style="margin-bottom: -50px;"></a><div> The Beans Café</div></div>
+  </div>
+<div class="w3-content w3-display-container" style="max-width:800px">
+  <a href="dessert.html"><img class="mySlides" src="p1.png" style="width:100%"></a>
+  <a href="dessert.html"><img class="mySlides" src="p2.png" style="width:100%"></a>
+  <a href="dessert.html"><img class="mySlides" src="p3.png" style="width:100%"></a>
+  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+</body>
+
+<footer id="site-footer">
+  <div class="container">
+    <div class="Location">
+    <h2>Our Location</h2>
+    </div>
+    <div class="BMap">
+    <div style="float: left; color: white;">
+    <p style="padding-top:70px;"><img src="location.png" style="padding-right:5px;padding-left:5px;">Al Yamamah, As Salamah, Jeddah 23524</p>
+    <p><img src="phone.png" style="padding-right:5px;padding-left:5px;"><img src="whatsapp.png"style="padding-right:5px;">+966598858478</p>
+    <p><img src="email.png" style="padding-right:5px;padding-left:5px;">TheBeansCafe@gmail.com</p>
+
+    </div>
+    <iframe class="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14838.911537598535!2d39.13656636977538!3d21.596542399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3da7b1f423269%3A0x5e442635a1a3d937!2sCup%20%26%20Couch%20Cafe%20and%20Roastery!5e0!3m2!1sen!2ssa!4v1615885854319!5m2!1sen!2ssa" width="350" height="300" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  <div style="text-align:left; color: white; padding-left: 20px; margin-top: -30px;">
+    <h2>Contact Us</h2>
+    <p>Leave us a message:</p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <form action="/action_page.php">
+        <label class="info">Full Name</label>
+        <input type="text" id="FullName" name="FullName" placeholder="Full Name..">
+        <label class="info">Phone Number</label>
+        <input type="text" id="PhoneNo" name="PhoneNo" placeholder="Phone Number..">
+        <label class="info">City</label>
+        <select id="City" name="City">
+          <option value="Jeddah">Jeddah</option>
+          <option value="Riyadh">Riyadh</option>
+        </select>
+        <label class="info">Message:</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LejwKAUAAAAACs5B-wV9ndjxrE49x3lGztPznl_&amp;co=aHR0cHM6Ly93d3cucXVhbnQuc2E6NDQz&amp;hl=en&amp;v=6g5J7UfDQ9mLrweZHj04ekSP&amp;theme=light&amp;size=normal&amp;cb=djtfvgl7ce2u" width="304" height="78" role="presentation" name="a-grgxdf3ofmw" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"></iframe></div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+<label style="color: white; margin-left: 20px;margin-top:20px;">© 2021 The Beans Cof Café. All rights reserved.</label>
+</footer>
+</html>
