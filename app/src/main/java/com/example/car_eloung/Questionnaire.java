@@ -2,10 +2,7 @@ package com.example.car_eloung;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,30 +14,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//For display image from uri
 import com.squareup.picasso.Picasso;
-
-import androidx.annotation.IntegerRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import weka.classifiers.Classifier;
 import weka.core.Instances;
-import weka.classifiers.trees.J48;
-import weka.classifiers.Evaluation;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 public class Questionnaire extends AppCompatActivity {
     int i = 0;
