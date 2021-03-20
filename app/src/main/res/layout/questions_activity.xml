@@ -232,16 +232,4 @@
         app:layout_constraintTop_toBottomOf="@+id/HeaderText"
         app:layout_constraintVertical_bias="0.142" />
 
-    <ImageView
-        android:id="@+id/information"
-        android:layout_width="93dp"
-        android:layout_height="63dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/Start"
-        app:layout_constraintEnd_toEndOf="@+id/Start"
-        app:layout_constraintStart_toStartOf="@+id/Start"
-        app:layout_constraintTop_toTopOf="@+id/Start"
-        app:srcCompat="@drawable/information" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

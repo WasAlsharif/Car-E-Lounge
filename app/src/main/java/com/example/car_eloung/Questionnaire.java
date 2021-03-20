@@ -12,12 +12,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -114,8 +111,6 @@ public class Questionnaire extends AppCompatActivity {
         circle9 = (Button) findViewById(R.id.circle9);
         circle10 = (Button) findViewById(R.id.circle10);
 
-        ImageView information = (ImageView) findViewById(R.id.information);
-
         //When click on the start button will hiding the last texts
         Button start = (Button) findViewById(R.id.startquestions);
 
@@ -126,7 +121,6 @@ public class Questionnaire extends AppCompatActivity {
                 text2.setVisibility(View.INVISIBLE);
                 text3.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.INVISIBLE);
-                information.setVisibility(View.VISIBLE);
                 question.setVisibility(View.VISIBLE);
                 question.setText("Price Range");
                 listView.setAdapter(priceadapter);
@@ -169,21 +163,12 @@ public class Questionnaire extends AppCompatActivity {
                                 value = topspeedadapter.getItem(position);
 
                             answers[i] = value;
-                            //Toast.makeText(getApplicationContext(),value,Toast.LENGTH_SHORT).show();
                             i++;
                             questions(i);
 
                         }
                     });
                 }
-
-
-                information.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(Questionnaire.this, "Answers: " + answers[0] + " " + answers[1] + " " + answers[2] + " " + answers[3] + " " +answers[4], Toast.LENGTH_SHORT).show();
-                    }
-                });
 
             }
         });
