@@ -6,4 +6,13 @@
     <string name="title_activity_car__e__lounge">Car_E_Lounge</string>
     <string name="title_activity_questionnaire">Questionnaire</string>
     <string name="title_activity_rapid__miner">Rapid_Miner</string>
+    <string name="title_activity_ad">ad</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
