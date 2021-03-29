@@ -16,7 +16,7 @@
             android:label="@string/title_activity_ad"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".Rapid_Miner"
+            android:name=".Compare"
             android:label="@string/title_activity_rapid__miner"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

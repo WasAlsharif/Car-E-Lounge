@@ -22,7 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class Rapid_Miner extends AppCompatActivity {
+public class Compare extends AppCompatActivity {
     DatabaseReference myRef;
     TextView loading;
     ImageView Tran, home,home2, start_compare;
@@ -73,7 +73,7 @@ public class Rapid_Miner extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Rapid_Miner.this, Car_E_Lounge.class));
+                startActivity(new Intent(Compare.this, Car_E_Lounge.class));
                 finish();
             }
         });
@@ -162,7 +162,7 @@ public class Rapid_Miner extends AppCompatActivity {
                             Result();
                         }
                     } else {
-                        Toast.makeText(Rapid_Miner.this, "Fill all the requirements first!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Compare.this, "Fill all the requirements first!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -316,10 +316,10 @@ public class Rapid_Miner extends AppCompatActivity {
                             Bad1 = dataSnapshot.child(temp2).child("The bad").getValue().toString();
 
 
-                            Picasso.with(Rapid_Miner.this).load(Company_Logo1)
+                            Picasso.with(Compare.this).load(Company_Logo1)
                                     .into(Company_logo1);
 
-                            Picasso.with(Rapid_Miner.this).load(Car_Image1)
+                            Picasso.with(Compare.this).load(Car_Image1)
                                     .into(ImgCar1);
                             TCompany_Name1.setText(Company_Name1);
                             TTo100sec1.setText(To100sec1);
@@ -369,10 +369,10 @@ public class Rapid_Miner extends AppCompatActivity {
                             Year2 = dataSnapshot.child(temp2).child("Year").getValue().toString();
                             Good2 = dataSnapshot.child(temp2).child("The good").getValue().toString();
                             Bad2 = dataSnapshot.child(temp2).child("The bad").getValue().toString();
-                            Picasso.with(Rapid_Miner.this).load(Company_Logo2)
+                            Picasso.with(Compare.this).load(Company_Logo2)
                                     .into(Company_logo2);
 
-                            Picasso.with(Rapid_Miner.this).load(Car_Image2)
+                            Picasso.with(Compare.this).load(Car_Image2)
                                     .into(ImgCar2);
 
                             TCompany_Name2.setText(Company_Name2);
@@ -404,7 +404,7 @@ public class Rapid_Miner extends AppCompatActivity {
         home2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Rapid_Miner.this, Car_E_Lounge.class));
+                startActivity(new Intent(Compare.this, Car_E_Lounge.class));
                 finish();
             }
         });

@@ -13,12 +13,6 @@ public class DataConstants {
             "340000-600000",
             "600000-9500000"};
 
-
-
-    //final static String topseed[] = {"120-170","171-250","251-420"};
-    //final static String power[] = {"65-300","301-700","701-1500"};
-    //final static String torque[] = {"90-350","351-600","601-1600"};
-
     final static String body[] = {"3-door",
             "5-door",
             "2-door",

@@ -23,7 +23,7 @@ public class Car_E_Lounge extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Car_E_Lounge.this, Rapid_Miner.class));
+                startActivity(new Intent(Car_E_Lounge.this, Compare.class));
             }
         });
 
