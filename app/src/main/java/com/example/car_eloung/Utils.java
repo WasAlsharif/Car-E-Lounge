@@ -12,7 +12,6 @@ public class Utils
         for (int i = 0; i < n; ++i)
         {
             ranges[i] =  current_start + "-"+(current_start + subrange_length);
-            //System.out.println(ranges[i]);
             current_start += subrange_length;
         }
         return ranges;

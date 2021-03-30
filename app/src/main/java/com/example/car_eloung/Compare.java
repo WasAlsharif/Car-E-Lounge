@@ -1,20 +1,15 @@
 package com.example.car_eloung;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,15 +19,13 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.net.URL;
 import java.util.ArrayList;
 
 
-public class Rapid_Miner extends AppCompatActivity {
+public class Compare extends AppCompatActivity {
     DatabaseReference myRef;
     TextView loading;
-    ImageView Tran, home, start_compare;
+    ImageView Tran, home,home2, start_compare;
     ProgressBar progressBar;
     String companys[] = new String[96];
     String Value = null, Value2 = null;
@@ -48,7 +41,7 @@ public class Rapid_Miner extends AppCompatActivity {
     TextView car;
     String model1_value;
     String model2_value;
-
+    int activity2=0;
     String Company_Logo1, Company_Name1, Car_Image1, To100sec1, Body_Style1, Class1, Country1, Engine1, Gearbox1, Power1, Speed1, Torque1, Price1, Year1, Good1, Bad1;
     String Company_Logo2, Company_Name2, Car_Image2, To100sec2, Body_Style2, Class2, Country2, Engine2, Gearbox2, Power2, Speed2, Torque2, Price2, Year2, Good2, Bad2;
     int selected =0;
@@ -80,11 +73,10 @@ public class Rapid_Miner extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Rapid_Miner.this, Car_E_Lounge.class));
+                startActivity(new Intent(Compare.this, Car_E_Lounge.class));
                 finish();
             }
         });
-
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("companys");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -165,11 +157,12 @@ public class Rapid_Miner extends AppCompatActivity {
                     if (selected >=2) {
                         if (!spinner.getSelectedItem().toString().equals("Select Car Company:") && !spinner2.getSelectedItem().toString().equals("Select Car Company:")) {
                             setContentView(R.layout.compare_activity2);
+                            home2 =(ImageView)findViewById(R.id.home);
                             car = (TextView) findViewById(R.id.car);
                             Result();
                         }
                     } else {
-                        Toast.makeText(Rapid_Miner.this, "Fill all the requirements first!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Compare.this, "Fill all the requirements first!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -183,14 +176,13 @@ public class Rapid_Miner extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String temp = String.valueOf(j);
                     j++;
-                    // Company = dataSnapshot.child("models").child(temp).child("Car Company").getValue().toString();
                     try {
                         Company = dataSnapshot.child("models").child(temp).child("Car Company").getValue().toString();
                         Model = dataSnapshot.child("models").child(temp).child("Model").getValue().toString();
                         if (Company.equalsIgnoreCase(value)) {
                             models.add(Model);
                         }
-                    } catch (Exception ex) {
+                    } catch (NullPointerException ex) {
                         System.out.println(ex);
                     }
                 }
@@ -219,7 +211,7 @@ public class Rapid_Miner extends AppCompatActivity {
                         if (Company2.equalsIgnoreCase(value)) {
                             models2.add(Model2);
                         }
-                    } catch (Exception ex) {
+                    } catch (NullPointerException ex) {
                         System.out.println(ex);
                     }
                 }
@@ -233,7 +225,6 @@ public class Rapid_Miner extends AppCompatActivity {
         });
         k = 0;
     }
-
 
     public void Display_model() {
         ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>
@@ -290,6 +281,7 @@ public class Rapid_Miner extends AppCompatActivity {
                     try {
                         String Check = dataSnapshot.child(temp2).child("Model").getValue().toString();
                         if (Check.equalsIgnoreCase(model1_value)) {
+                            activity2=1;
                             TextView TCompany_Name1 = (TextView) findViewById(R.id.Company1_name);
                             TextView TTo100sec1 = (TextView) findViewById(R.id.To100sec1);
                             TextView TBody_Style1 = (TextView) findViewById(R.id.Body_Style1);
@@ -324,10 +316,10 @@ public class Rapid_Miner extends AppCompatActivity {
                             Bad1 = dataSnapshot.child(temp2).child("The bad").getValue().toString();
 
 
-                            Picasso.with(Rapid_Miner.this).load(Company_Logo1)
+                            Picasso.with(Compare.this).load(Company_Logo1)
                                     .into(Company_logo1);
 
-                            Picasso.with(Rapid_Miner.this).load(Car_Image1)
+                            Picasso.with(Compare.this).load(Car_Image1)
                                     .into(ImgCar1);
                             TCompany_Name1.setText(Company_Name1);
                             TTo100sec1.setText(To100sec1);
@@ -377,10 +369,10 @@ public class Rapid_Miner extends AppCompatActivity {
                             Year2 = dataSnapshot.child(temp2).child("Year").getValue().toString();
                             Good2 = dataSnapshot.child(temp2).child("The good").getValue().toString();
                             Bad2 = dataSnapshot.child(temp2).child("The bad").getValue().toString();
-                            Picasso.with(Rapid_Miner.this).load(Company_Logo2)
+                            Picasso.with(Compare.this).load(Company_Logo2)
                                     .into(Company_logo2);
 
-                            Picasso.with(Rapid_Miner.this).load(Car_Image2)
+                            Picasso.with(Compare.this).load(Car_Image2)
                                     .into(ImgCar2);
 
                             TCompany_Name2.setText(Company_Name2);
@@ -409,7 +401,13 @@ public class Rapid_Miner extends AppCompatActivity {
 
             }
         });
-
+        home2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Compare.this, Car_E_Lounge.class));
+                finish();
+            }
+        });
     }
 
 }

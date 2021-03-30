@@ -7,7 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 public class logo_activity extends AppCompatActivity {
 
-    private static final long SPLASH_TIME_OUT = 4000;
+    private static final long SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +17,8 @@ public class logo_activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                Intent homeIntent = new Intent(logo_activity.this, Car_E_Lounge.class);
-                startActivity(homeIntent);
+                Intent ad = new Intent(logo_activity.this, ad.class);
+                startActivity(ad);
                 finish();
             }
         },SPLASH_TIME_OUT);
