@@ -63,14 +63,9 @@ public class ad extends AppCompatActivity {
                                 }, SPLASH_TIME_OUT);
                             }
                         }, SPLASH_TIME_OUT);
-
                     }
                 }, SPLASH_TIME_OUT);
-
-
             }
         }, SPLASH_TIME_OUT);
-
-
     }
 }

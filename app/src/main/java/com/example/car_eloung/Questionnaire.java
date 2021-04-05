@@ -36,20 +36,17 @@ import java.util.List;
 
 public class Questionnaire extends AppCompatActivity {
     int i = 0;
-    ArrayList<Car> cars = new ArrayList<Car>();// this array stores all the cars
-    ArrayList<Car> fcars = new ArrayList<Car>();// this array stores only filtered cars based on user answers
-    //declare variables
+    ArrayList<Car> cars = new ArrayList<Car>();
+    ArrayList<Car> fcars = new ArrayList<Car>();
     TextView question, loading, brand, model, more;
     Button circle1, circle2, circle3, circle4, circle5, circle6, circle7, circle8, circle9, circle10;
     ImageView back, Tran, car_pic;
     ProgressBar progressBar;
-    ListView listView;// listview
-    String[] answers;// store user answers
-    // adapters to show options
+    ListView listView;
+    String[] answers;
     ArrayAdapter<String> priceadapter, topspeedadapter, bodyadapter, styleadapter,
             poweradapter, countryadapter;
     int pos = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,20 +55,17 @@ public class Questionnaire extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         //textView=(TextView)findViewById(R.id.textView);
         question = (TextView) findViewById(R.id.question);
-        // -----------------------------------------------------------------------------------------
+        // load data from csv file
         cars = loadCars();
-        // -----------------------------------------------------------------------------------------
-        // set default options to each adapter
-        // the default options are defined inside DataConstants.java file.
+
         priceadapter = new ArrayAdapter<String>(this, R.layout.q_options, R.id.options, DataConstants.price);
         countryadapter = new ArrayAdapter<String>(this, R.layout.q_options, R.id.options, DataConstants.country);
         bodyadapter = new ArrayAdapter<String>(this, R.layout.q_options, R.id.options, DataConstants.body);
         styleadapter = new ArrayAdapter<String>(this, R.layout.q_options, R.id.options, DataConstants.style);
 
-        answers = new String[10];// create array instance to store user answers
+        answers = new String[10];
         back = (ImageView) findViewById(R.id.back);
 
-        // if user click on back button
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,9 +118,8 @@ public class Questionnaire extends AppCompatActivity {
                 text3.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.INVISIBLE);
                 question.setVisibility(View.VISIBLE);
-                // show first question to user, price range
                 question.setText("Price Range");
-                listView.setAdapter(priceadapter);// set price adapter to listview to show price range to user
+                listView.setAdapter(priceadapter);
                 circle1.setVisibility(View.VISIBLE);
                 circle2.setVisibility(View.VISIBLE);
                 circle3.setVisibility(View.VISIBLE);
@@ -142,24 +135,23 @@ public class Questionnaire extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                             // TODO Auto-generated method stub
-                            // there are total 6 questions
                             String value = null;
-                            if (pos == 0)// if user on question 1
-                                value = priceadapter.getItem(position);// then it will be price
-                            if (pos == 1)// if user on question 2
-                                value = countryadapter.getItem(position);// it will be a country
-                            if (pos == 2)// if user on question 3
-                                value = bodyadapter.getItem(position);// it will be a body
-                            if (pos == 3)// and so on
+                            if (pos == 0)
+                                value = priceadapter.getItem(position);
+                            if (pos == 1)
+                                value = countryadapter.getItem(position);
+                            if (pos == 2)
+                                value = bodyadapter.getItem(position);
+                            if (pos == 3)
                                 value = styleadapter.getItem(position);
                             if (pos == 4)
                                 value = poweradapter.getItem(position);
                             if (pos == 5)
                                 value = topspeedadapter.getItem(position);
 
-                            answers[i] = value;// store the user answer
-                            i++;// go to next question
-                            questions(i);// load next question
+                            answers[i] = value;
+                            i++;
+                            questions(i);
 
                         }
                     });
@@ -168,42 +160,45 @@ public class Questionnaire extends AppCompatActivity {
             }
         });
     }
-    // here it will load next question
+
     void questions(int i) {
-//--------------------------------------------------------------------------------------------------
-        // the question1 already shown to user
+        //Question 1 is already added it
+        //Question 2
+
         if (i == 0) {
             question.setText("Price Range");
             listView.setAdapter(priceadapter);
             pos = 0;
-        } else if (i == 1) // question 2
-        {
-            question.setText("Select Country");// set text
-            ArrayList<String> values = new ArrayList<String>();// create temperary array
-            // now from the previous question, we have price range
-            // price format: 100-200, or 1000 and more
-            // so we need to parse price string so we can get price as integer
-            String price = answers[0];// get selected price
+        } else if (i == 1) {
+            question.setText("Select Country");
+            ArrayList<String> values = new ArrayList<String>();
+            String price = answers[0];
             int aggregatedprice = 0;
             String arr[] = null;
-
-
-            arr = price.split("-");
-            int pricestart = Integer.parseInt(arr[0]);
-            int priceend = Integer.parseInt(arr[1]);
-            // filter the cars based on price range
-            for (int k = 0; k < cars.size(); k++) {
-                if (cars.get(k).getPrice() >= pricestart && cars.get(k).getPrice() <= priceend) {
-                    if (!values.contains(cars.get(k).getCountry()))
-                        values.add(cars.get(k).getCountry());// get country
-                    fcars.add(cars.get(k));
+            if (price.contains("more")) {
+                arr = price.split("and");
+                String str = arr[0].replaceAll("\\s+", "");
+                aggregatedprice = Integer.parseInt(str);
+                for (int k = 0; k < cars.size(); k++) {
+                    if (cars.get(k).getPrice() >= aggregatedprice) {
+                        if (!values.contains(cars.get(k).getCountry()))
+                            values.add(cars.get(k).getCountry());
+                        fcars.add(cars.get(k));
+                    }
+                }
+            } else {
+                arr = price.split("-");
+                int pricestart = Integer.parseInt(arr[0]);
+                int priceend = Integer.parseInt(arr[1]);
+                for (int k = 0; k < cars.size(); k++) {
+                    if (cars.get(k).getPrice() >= pricestart && cars.get(k).getPrice() <= priceend) {
+                        if (!values.contains(cars.get(k).getCountry()))
+                            values.add(cars.get(k).getCountry());
+                        fcars.add(cars.get(k));
+                    }
                 }
             }
-            //           }
-            // now we have filtered cars based on price range
-            // create/update country list adapter
             countryadapter = new ArrayAdapter<String>(this, R.layout.q_options, R.id.options, values);
-            // here will only show the countries which statisfies price range selected in previous question
             listView.setAdapter(countryadapter);
             listView.invalidate();
             pos = 1;
@@ -213,11 +208,9 @@ public class Questionnaire extends AppCompatActivity {
 
         //Question 3
         else if (i == 2) {
-            question.setText("Select Body");// question 3
-            ArrayList<String> values = new ArrayList<>();// create array
-            String country = answers[1];// get country
-            // now from previous step the fcars array contains the cars which statisfies price range
-            // now will filter cars based on country selected in previous cars
+            question.setText("Select Body");
+            ArrayList<String> values = new ArrayList<>();
+            String country = answers[1];
             for (int k = 0; k < fcars.size(); k++) {
                 if (fcars.get(k).getCountry().equalsIgnoreCase(country)) {
                     if (!values.contains(fcars.get(k).getBody()))
@@ -228,9 +221,6 @@ public class Questionnaire extends AppCompatActivity {
                 }
 
             }
-            // now update body adapters
-            // we have filtered cars based on price range and country so from the filtered cars
-            // we show car body so user can select
             bodyadapter = new ArrayAdapter<String>(this, R.layout.q_options, R.id.options, values);
             listView.setAdapter(bodyadapter);
             listView.invalidate();
@@ -240,8 +230,6 @@ public class Questionnaire extends AppCompatActivity {
         }
         //Question 4
         else if (i == 3) {
-            // the same as previous step but now we will filter cars based on user selected body
-            // we gradually filtered cars based on user answers like we are building a tree
             question.setText("Select Style");
             String body = answers[2];
             ArrayList<String> values = new ArrayList<>();
@@ -265,7 +253,6 @@ public class Questionnaire extends AppCompatActivity {
         }
         //Question 5
         else if (i == 4) {
-            // now we will ask users the power range
             question.setText("Power");
             ArrayList<Integer> values = new ArrayList<>();
             // filter power range based on style and body
@@ -287,10 +274,9 @@ public class Questionnaire extends AppCompatActivity {
 
         //Question 6
         else if (i == 5) {
-            // now we will ask from users top speed range
             question.setText("Top Speed");
             ArrayList<Integer> values = new ArrayList<>();
-            // filter Top Speed based on style and body
+            // filter power range based on style and body
             for (int k = 0; k < fcars.size(); k++) {
                 values.add(fcars.get(k).getTopspeed());
             }
@@ -353,7 +339,7 @@ public class Questionnaire extends AppCompatActivity {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
-                    result();// here will call weka classifier
+                    result();
                     progressBar.setVisibility(View.INVISIBLE);
                     loading.setVisibility(View.INVISIBLE);
                     Tran.setVisibility(View.INVISIBLE);
@@ -363,10 +349,14 @@ public class Questionnaire extends AppCompatActivity {
 
     }
 
-    //----------------------------------------------------------------------------------------------
     int getavg(String s) {
         String arr[] = null;
-        arr = s.split("-");
+        if (s.contains("more")) {
+            arr = s.split("and");
+            String str = arr[0].replaceAll("\\s+", "");
+            return Integer.parseInt(str);
+        } else
+            arr = s.split("-");
         int sum = 0;
         sum = Integer.parseInt(arr[0]) + Integer.parseInt(arr[1]);
         return sum / 2;
@@ -392,6 +382,7 @@ public class Questionnaire extends AppCompatActivity {
             is = assetManager.open("cleandataset2.csv");
             assetManager = null;
         } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         try {
@@ -433,8 +424,6 @@ public class Questionnaire extends AppCompatActivity {
 
     }
 
-    // initiate weka classifier to predict suitable car based on answers
-    // we will pass all the user answers to weka classifier
     public String predict(int price, String country, String body, String style, int power, int speed) {
 
         final Attribute priceAtt = new Attribute("Price");
@@ -499,7 +488,6 @@ public class Questionnaire extends AppCompatActivity {
         return classes.get(new Double(result).intValue());
     }
 
-    // this function load all the cars in the car array list
     public ArrayList<Car> loadCars() {
         ArrayList<Car> list = new ArrayList<>();
         InputStream is = null;
@@ -510,7 +498,8 @@ public class Questionnaire extends AppCompatActivity {
             is = assetManager.open("cleandataset2.csv");
             assetManager = null;
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
         try {
             //parsing a CSV file into BufferedReader class constructor
@@ -527,7 +516,7 @@ public class Questionnaire extends AppCompatActivity {
             br.close();
             is.close();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
         return list;
     }

@@ -2,8 +2,7 @@ package com.example.car_eloung;
 
 import java.io.Serializable;
 
-public class Car implements Serializable
-{
+public class Car implements Serializable {
     private String company;
     private String url;
     private int price;
@@ -21,9 +20,8 @@ public class Car implements Serializable
     private String kph;
     private int topspeed;
 
-    public Car(String company,String url,String model,int price,String country,String class_,String body,String style,String engine,
-               String gearbox,int powerhp,int torque,String fueleconl,String fueleconk,String kph,int topspeed)
-    {
+    public Car(String company, String url, String model, int price, String country, String class_, String body, String style, String engine,
+               String gearbox, int powerhp, int torque, String fueleconl, String fueleconk, String kph, int topspeed) {
         this.company = company;
         this.url = url;
         this.price = price;
@@ -41,68 +39,82 @@ public class Car implements Serializable
         this.kph = kph;
         this.topspeed = topspeed;
     }
-    public String getEngine()
-    {
+    public Car(String company,String model) {
+        this.company = company;
+        this.model = model;
+    }
+
+    public String getEngine() {
         return this.engine;
     }
-    public String getGearbox()
-    {
+
+    public String getGearbox() {
         return this.gearbox;
     }
-    public int getPowerhp()
-    {
+
+    public int getPowerhp() {
         return this.powerhp;
     }
-    public int getTorque()
-    {
+
+    public int getTorque() {
         return this.torque;
     }
-    public String getFueleconl()
-    {
+
+    public String getFueleconl() {
         return this.fueleconl;
     }
-    public String getFueleconk()
-    {
+
+    public String getFueleconk() {
         return this.fueleconk;
     }
-    public String getKph()
-    {
+
+    public String getKph() {
         return this.kph;
     }
-    public int getTopspeed()
-    {
+
+    public int getTopspeed() {
         return this.topspeed;
     }
-    public String getCompany()
-    {
+
+
+
+    public String getCompany() {
         return this.company;
     }
-    public String getUrl()
-    {
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getUrl() {
         return this.url;
     }
-    public int getPrice()
-    {
+
+    public int getPrice() {
         return this.price;
     }
-    public String getModel()
-    {
+
+    public String getModel() {
         return this.model;
     }
-    public String getCountry()
-    {
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getCountry() {
         return this.country;
     }
-    public String getClass_()
-    {
+
+    public String getClass_() {
         return this.class_;
     }
-    public String getBody()
-    {
+
+    public String getBody() {
         return this.body;
     }
-    public String getStyle()
-    {
+
+    public String getStyle() {
         return this.style;
     }
 

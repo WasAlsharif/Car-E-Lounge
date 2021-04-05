@@ -26,9 +26,6 @@ public class Car_E_Lounge extends AppCompatActivity {
                 startActivity(new Intent(Car_E_Lounge.this, Compare.class));
             }
         });
-
-
-
     }
 
 }
